@@ -1,0 +1,33 @@
+#include <dt-bindings/zmk/matrix_transform.h>
+#include <dt-bindings/gpio/gpio.h>
+
+/ {
+    kscan0: kscan_0 {
+        compatible = "zmk,kscan-gpio-direct";
+        wakeup-source;
+        input-gpios
+            = <&xiao_d 0 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+            , <&xiao_d 1 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+            ;
+    };
+
+    default_transform: keymap_transform0 {
+        compatible = "zmk,matrix-transform";
+        columns = <2>;
+        rows = <1>;
+        map = <
+            RC(0,0) RC(0,1)
+        >;
+    };
+
+    physical_layout0: physical_layout_0 {
+        compatible = "zmk,physical-layout";
+        display-name = "XIAO Test";
+        kscan = <&kscan0>;
+        transform = <&default_transform>;
+    };
+
+    chosen {
+        zmk,physical-layout = &physical_layout0;
+    };
+};
