@@ -21,3 +21,5 @@
 include:
   - board: seeeduino_xiao_ble
     shield: xiao_test
+  - board: seeeduino_xiao_ble
+    shield: xiao_tb

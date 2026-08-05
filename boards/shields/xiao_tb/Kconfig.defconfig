@@ -1,0 +1,6 @@
+if SHIELD_XIAO_TB
+
+config ZMK_KEYBOARD_NAME
+    default "XIAO TB"
+
+endif
